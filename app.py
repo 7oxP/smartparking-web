@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, request, flash
 import mysql.connector
 from datetime import datetime
 
@@ -46,9 +46,7 @@ def dashboard():
 
 @app.route("/topup", methods=['GET','POST'])
 def topup():
-    getQuery = "SELECT * FROM riwayat_topup"
-    nominal = ""
-    
+    getQuery = "SELECT * FROM riwayat_topup"    
     
     if request.method == 'POST':
         id = 111
@@ -71,7 +69,7 @@ def topup():
         
         updateSaldoQuery = f"UPDATE saldo_user SET saldo='{total}' WHERE id_kartu='{id}'"
         isi_saldo = addData(updateSaldoQuery)
-        flash(f'Top Up sebesar Rp{nominal} berhasil dilakukan!', 'success')
+        flash(f'Top Up kartu {nama} sebesar Rp{nominal} berhasil dilakukan!', 'success')
         
         print('topup berhasil')    
         riwayatQuery = f"INSERT INTO riwayat_topup VALUES(NULL,'{id}','{nama}','{nominal}','{formatted_time}')"
@@ -79,7 +77,7 @@ def topup():
                 
     
     data = getData(getQuery)
-    return render_template("topup.html", data_topup = data, data_nominal = nominal)
+    return render_template("topup.html", data_topup = data)
 
 @app.route("/addbalance", methods=['POST'])
 def add_balance():
