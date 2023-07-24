@@ -25,20 +25,20 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="Ganti" class="active">
+        <a href="#" class="active">
           <i class="bx bxs-dashboard"></i>
           <span class="links_name">Dashboard</span>
         </a>
       </li>
       <li>
-        <a href="Ganti">
+        <a href="{{url_for('daftar_user')}}">
           <i class='bx bxs-user-badge' ></i>
           <span class="links_name">Daftar User</span>
         </a>
       </li>
       
       <li class="log_out">
-        <a href="Ganti">
+        <a href="{{url_for('landingpage')}}">
           <i class="bx bx-log-out"></i>
           <span class="links_name">Keluar</span>
         </a>
@@ -63,23 +63,23 @@
           <div class="box">
             <div class="right-side">
               <div class="box-topic">Motor Masuk</div>
-              <div class="number">10</div>
+              <div class="number">{{dataKendaraan|length }}</div>
             </div>
             <i class='bx bx-download cart two'></i>
           </div>
           <div class="box">
             <div class="right-side">
               <div class="box-topic">Motor Keluar</div>
-              <div class="number">3</div>
+              <div class="number">{{dataKeluar|length}}</div>
             </div>
             <i class='bx bx-upload cart three' ></i>
           </div>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">Jumlah Motor</div>
-              <div class="number">10</div>
+              <div class="box-topic">Jumlah User</div>
+              <div class="number">{{dataUser|length }}</div>
             </div>
-            <i class='bx bxs-data cart two'></i>
+            <i class='bx bxs-user-circle cart two'></i>
           </div>
         </div>
       </div>
@@ -95,29 +95,26 @@
                 <thead class="bg-primary text-white">
                   <tr>
                     <th>ID</th>
+                    <th>ID Kartu</th>
                     <th>Nama</th>
-                    <th>Tgl Masuk</th>
-                    <th>Jam Masuk</th>
-                    <th>Jam Keluar</th>
+                    <th>Waktu Masuk</th>
+                    <th>Waktu Keluar</th>
+                    <th>Nomor Polisi</th>
                     
                     <!-- <th>Action</th> -->
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- {% for item in data%} -->
+                  {% for item in dataKendaraan%}
                   <tr>
                     <td>{{item[0]}}</td>
                     <td>{{item[1]}}</td>
                     <td>{{item[2]}}</td>
                     <td>{{item[3]}}</td>
-                    <td>{{item[3]}}</td>
-                    <!-- ````` -->                          
-                    <!-- <td> 
-                      <a href="/updateReservasi/{{item['id_pemesanan']}}" class="btn btn-warning" role="button"><i class='bx bxs-edit'></i> Update</a>
-                      <a href="/deleteReservasi/{{item['id_pemesanan']}}" class="btn btn-danger" role="button"><i class='bx bxs-trash-alt'></i> Delete</a>
-                    </td> -->
+                    <td>{{item[4]}}</td>
+                    <td>{{item[5]}}</td>
                   </tr>
-                  <!-- {%endfor%} -->
+                  {%endfor%}
                 </tbody>
               </table>
               <!-- <a href="reservasi_create.html" class="btn btn-primary mb-3" role="button"><i class='bx bx-plus-medical' ></i>Input Data</a> -->
@@ -125,68 +122,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="sales-boxes">
-        <div class="recent-sales box">
-          <div class="title">List Reservasi</div>
-          <div class="sales-details">
-            <ul class="details">
-              <li class="topic">ID</li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              
-            </ul>
-            <ul class="details">
-              <li class="topic">Nama</li>
-              <li><a href="#">Alex Doe</a></li>
-              <li`><a href="#">David Mart</a></li>
-              <li><a href="#">Roe Parter</a></li>
-              
-            </ul>
-            <ul class="details">
-              <li class="topic">No Telp</li>
-              <li><a href="#">081312424</a></li>
-              <li><a href="#">089351354</a></li>
-              <li><a href="#">087124125</a></li>   
-            </ul>
-            <ul class="details">
-              <li class="topic">Tanggal</li>
-              <li><a href="#">2022-12-13</a></li>
-              <li><a href="#">2023-1-12</a></li>
-              <li><a href="#">2022-12-11</a></li>
-            </ul>
-            <ul class="details">
-              <li class="topic">Jenis Reservasi</li>
-              <li><a href="#">Dine In</a></li>
-              <li><a href="#">Dine In</a></li>
-              <li><a href="#">Dine In</a></li>
-            </ul>
-          </div>
-          <div class="button">
-            <a href="reservasi.html">See All</a>
-          </div>
-        </div>
-        <div class="top-sales box">
-          <div class="title">List User</div>
-          <ul class="top-sales-details">
-            <li>
-              <span class="product" style="font-weight:500; font-size: 20px;">Username </span>
-              <span class="price" style="font-weight:500; font-size: 20px;">No Telp</span>
-            </li><li>
-              <span class="product">Admoon</span>
-              <span class="price">010111011</span>
-            </li>
-            <li>
-              <span class="product">Fatur</span>
-              <span class="price">0891561756</span>
-            </li>
-            <li>
-              <span class="product">Bagus</span>
-              <span class="price">0813615489</span>
-            </li>
-          </ul>
-        </div>
-      </div> -->
     </div>
   </section>
   

@@ -23,26 +23,18 @@
       - Gopay xxxxxxxxxxxx/a.n. Zidane
     </p> -->
     <hr>
-    <form action="#" class="form">
+    <form method="POST" class="form">
       <div class="input-box">
         <label>Nama</label>
-        <input type="text" placeholder="ex: Joe Mama" required />
+        <input type="text" name="nama" placeholder="ex: Joe Mama" required />
       </div>
       <div class="input-box">
         <label>E-mail</label>
-        <input type="text" placeholder="ex: joemama@gmail.com" required />
+        <input type="text" name="email" placeholder="ex: joemama@gmail.com" required />
       </div>
       <div class="input-box">
-        <label>Nomor Telepon</label>
-        <input type="number" placeholder="ex: 081388889999" required />
-      </div>
-      <div class="input-box">
-        <label>Tipe Kendaraan</label>
-        <input type="text" placeholder="ex: Honda Beat" required />
-      </div>
-      <div class="input-box">
-        <label>Nomor Registrasi</label>
-        <input type="text" placeholder="ex: B 9900 ABC" required />
+        <label>Nomor Polisi</label>
+        <input type="text" name="nopol" placeholder="ex: B 9900 ABC" required />
       </div>
       <!-- <div class="input-box">
         <label>Bukti Transaksi</label>
@@ -51,7 +43,7 @@
           <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
       </div> -->
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   </section>
 </body>
