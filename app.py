@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = '5m4rtp4rk1n9'
 
 def getMysqlConnection():
-    return mysql.connector.connect(host="localhost", user="root", password="", database="iotik")
+    return mysql.connector.connect(host="localhost", user="root", password="", database="smartparking")
 
 def addData(query):
     db = getMysqlConnection()
