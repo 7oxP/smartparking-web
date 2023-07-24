@@ -85,7 +85,7 @@ def dashboardd():
 
 @application.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('dashboard.html')
 
 @application.route('/loginadmin')
 def loginadmin():
