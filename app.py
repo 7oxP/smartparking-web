@@ -82,9 +82,10 @@ def login():
 @app.route('/dashboard')
 def dashboard():
 
-    dataKendaraan = getData("SELECT * FROM `kendaraan`")
-    dataKeluar = getData("SELECT * FROM `kendaraan` WHERE isInside='0'")
+    dataKendaraan = getData("SELECT * FROM `log_kendaraan`")
+    dataKeluar = getData("SELECT * FROM `log_kendaraan` WHERE isInside='0'")
     dataUser = getData("SELECT * FROM `user`")
+
     return render_template('dashboard.html', dataKendaraan=dataKendaraan, dataKeluar=dataKeluar, dataUser=dataUser)
 
 @app.route('/daftar_user')
@@ -94,13 +95,28 @@ def daftar_user():
     print(data)
     return render_template('daftar_user.html', data=data)
 
-def motorKeluar():
-    id = 7
+@app.route("/userMasuk/<int:id>")
+def userMasuk(id):
+    query = f"SELECT * FROM `user` WHERE id_kartu='{id}'"
+    data = getOneData(query)
+    
+    id_kartu = data[1]
+    nama = data[2]
+    nopol = data[4]
 
-    query = f"UPDATE `kendaraan` SET `waktu_keluar` = CURRENT_TIME(), `isInside` = '0' WHERE `kendaraan`.`id` = {id}"
+    query = f"INSERT INTO log_kendaraan VALUES (NULL,'{id_kartu}','{nama}',CURRENT_TIME(),CURRENT_TIME(),'{nopol}','1')"
+
     addData(query)
 
-# motorKeluar()
+    return redirect(url_for("dashboard"))
+
+@app.route("/userKeluar/<int:id>")
+def motorKeluar(id):
+    query = f"UPDATE `log_kendaraan` SET `waktu_keluar` = CURRENT_TIME(), `isInside` = '0' WHERE `log_kendaraan`.`id_kartu` = {id}"
+    addData(query)
+
+    return redirect(url_for("dashboard"))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

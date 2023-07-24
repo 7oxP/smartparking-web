@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2023 at 06:18 PM
+-- Generation Time: Jul 24, 2023 at 06:56 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -43,10 +43,10 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kendaraan`
+-- Table structure for table `log_kendaraan`
 --
 
-CREATE TABLE `kendaraan` (
+CREATE TABLE `log_kendaraan` (
   `id` int(11) NOT NULL,
   `id_kartu` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
@@ -57,13 +57,14 @@ CREATE TABLE `kendaraan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kendaraan`
+-- Dumping data for table `log_kendaraan`
 --
 
-INSERT INTO `kendaraan` (`id`, `id_kartu`, `nama`, `waktu_masuk`, `waktu_keluar`, `nopol`, `isInside`) VALUES
-(1, 123, 'Joko', '2023-06-07 17:00:00', '2023-07-24 13:58:00', 'B13221', 0),
-(5, 232, 'Prasetyo', '2023-07-24 14:09:45', '2023-07-24 14:09:45', 'B12332', 1),
-(7, 22222, 'Escobar', '2023-07-24 15:11:04', '2023-07-24 15:16:13', 'B1323', 0);
+INSERT INTO `log_kendaraan` (`id`, `id_kartu`, `nama`, `waktu_masuk`, `waktu_keluar`, `nopol`, `isInside`) VALUES
+(18, 123123, 'Joko', '2023-07-24 16:52:37', '2023-07-24 16:55:19', 'B 131234', 0),
+(19, 13213, 'Prasetyo', '2023-07-24 16:52:49', '2023-07-24 16:54:14', 'B 13123', 0),
+(20, 1341, 'Escobar', '2023-07-24 16:52:54', '2023-07-24 16:53:43', 'B 990912', 0),
+(21, 123123, 'Joko', '2023-07-24 16:55:00', '2023-07-24 16:55:19', 'B 131234', 0);
 
 -- --------------------------------------------------------
 
@@ -84,8 +85,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `id_kartu`, `nama`, `email`, `nopol`) VALUES
-(1, 123123, 'Joko', 'joko@email.com', ''),
-(2, 13213, 'Prasetyo', 'pras@mail.com', ''),
+(1, 123123, 'Joko', 'joko@email.com', 'B 131234'),
+(2, 13213, 'Prasetyo', 'pras@mail.com', 'B 13123'),
 (3, 1341, 'Escobar', 'escobar@mail.com', 'B 990912');
 
 --
@@ -99,9 +100,9 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kendaraan`
+-- Indexes for table `log_kendaraan`
 --
-ALTER TABLE `kendaraan`
+ALTER TABLE `log_kendaraan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -121,10 +122,10 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `kendaraan`
+-- AUTO_INCREMENT for table `log_kendaraan`
 --
-ALTER TABLE `kendaraan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `log_kendaraan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user`
