@@ -104,7 +104,7 @@ def userMasuk(id):
     nama = data[2]
     nopol = data[4]
 
-    query = f"INSERT INTO log_kendaraan VALUES (NULL,'{id_kartu}','{nama}',CURRENT_TIME(),CURRENT_TIME(),'{nopol}','1')"
+    query = f"INSERT INTO log_kendaraan VALUES (NULL,'{id_kartu}','{nama}',CURRENT_TIME(),NULL,'{nopol}','1')"
 
     addData(query)
 
