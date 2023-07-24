@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2023 at 06:56 PM
+-- Generation Time: Jul 24, 2023 at 07:21 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -51,7 +51,7 @@ CREATE TABLE `log_kendaraan` (
   `id_kartu` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `waktu_masuk` timestamp NOT NULL DEFAULT current_timestamp(),
-  `waktu_keluar` timestamp NOT NULL DEFAULT current_timestamp(),
+  `waktu_keluar` timestamp NULL DEFAULT current_timestamp(),
   `nopol` varchar(10) NOT NULL,
   `isInside` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -125,7 +125,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `log_kendaraan`
 --
 ALTER TABLE `log_kendaraan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`
