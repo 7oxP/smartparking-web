@@ -83,7 +83,7 @@ def login():
 def dashboard():
 
     dataKendaraan = getData("SELECT * FROM `kendaraan`")
-    dataKeluar = getData("SELECT * FROM `kendaraan` WHERE isInside='1'")
+    dataKeluar = getData("SELECT * FROM `kendaraan` WHERE isInside='0'")
     dataUser = getData("SELECT * FROM `user`")
     return render_template('dashboard.html', dataKendaraan=dataKendaraan, dataKeluar=dataKeluar, dataUser=dataUser)
 
@@ -94,6 +94,13 @@ def daftar_user():
     print(data)
     return render_template('daftar_user.html', data=data)
 
+def motorKeluar():
+    id = 7
+
+    query = f"UPDATE `kendaraan` SET `waktu_keluar` = CURRENT_TIME(), `isInside` = '0' WHERE `kendaraan`.`id` = {id}"
+    addData(query)
+
+# motorKeluar()
 
 if __name__ == '__main__':
     app.run(debug=True)
