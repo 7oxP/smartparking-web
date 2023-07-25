@@ -44,17 +44,17 @@ def landingpage():
 @app.route('/regist', methods=['GET', 'POST'])   
 def regist():							
     if request.method == 'GET':
-        return render_template('daftar_kartu.html')	
+        id_kartu = random.randint(10000, 20000)
+        return render_template('daftar_kartu.html', id_kartu=id_kartu)	
     elif request.method =='POST':
         id_kartu = random.randint(10000, 20000)
         nama = request.form['nama']			
-        email = request.form['email']	
         nopol = request.form['nopol']
         
-        query = f"INSERT INTO `user` VALUES (NULL,'{id_kartu}','{nama}','{email}','{nopol}')"
+        query = f"INSERT INTO `user` VALUES (NULL,'{id_kartu}','{nama}','{nopol}')"
         addData(query)
 
-        return render_template('landingpageiotik.html')
+        return redirect(url_for('daftar_user'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
